@@ -14,6 +14,7 @@ run_crew = "content_review_crew.main:run"
 train = "content_review_crew.main:train"
 replay = "content_review_crew.main:replay"
 test = "content_review_crew.main:test"
+check_llm = "content_review_crew.check_llm:run"
 run_with_trigger = "content_review_crew.main:run_with_trigger"
 
 [build-system]
