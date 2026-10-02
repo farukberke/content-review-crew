@@ -20,6 +20,22 @@ class ContentReviewCrew:
             verbose=True,
         )
 
+    @agent
+    def claim_reviewer(self) -> Agent:
+        return Agent(
+            config=self.agents_config["claim_reviewer"],  # type: ignore[index]
+            llm=groq_llm(),
+            verbose=True,
+        )
+
+    @agent
+    def improvement_editor(self) -> Agent:
+        return Agent(
+            config=self.agents_config["improvement_editor"],  # type: ignore[index]
+            llm=groq_llm(),
+            verbose=True,
+        )
+
     @task
     def clarity_review_task(self) -> Task:
         return Task(config=self.tasks_config["clarity_review_task"])  # type: ignore[index]
