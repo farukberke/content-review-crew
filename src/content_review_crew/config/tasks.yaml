@@ -51,7 +51,8 @@ improvement_task:
     Revize Metin
     (the improved text)
 
-    Do not use markdown headings, bold text or tables.
+    Start every list item with '-'. Do not use numbered lists, markdown
+    headings, bold text or tables.
   # In hierarchical mode this limits the manager's delegation to this agent.
   agent: improvement_editor
   context:

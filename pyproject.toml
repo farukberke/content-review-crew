@@ -1,8 +1,8 @@
 [project]
 name = "content_review_crew"
 version = "0.1.0"
-description = "content-review-crew using crewAI"
-authors = [{ name = "Your Name", email = "you@example.com" }]
+description = "Reviews a text from different angles with a hierarchical CrewAI crew"
+authors = [{ name = "Faruk Berke Çevik", email = "krfablao@hotmail.com" }]
 requires-python = ">=3.10,<3.14"
 dependencies = [
     "crewai>=1.15.23,<2.0.0"
