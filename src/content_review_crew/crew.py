@@ -40,6 +40,14 @@ class ContentReviewCrew:
     def clarity_review_task(self) -> Task:
         return Task(config=self.tasks_config["clarity_review_task"])  # type: ignore[index]
 
+    @task
+    def claim_review_task(self) -> Task:
+        return Task(config=self.tasks_config["claim_review_task"])  # type: ignore[index]
+
+    @task
+    def improvement_task(self) -> Task:
+        return Task(config=self.tasks_config["improvement_task"])  # type: ignore[index]
+
     @crew
     def crew(self) -> Crew:
         return Crew(

@@ -8,3 +8,50 @@ clarity_review_task:
   expected_output: >
     A short readability review in Turkish with bullet points.
   agent: clarity_reviewer
+
+claim_review_task:
+  description: >
+    Find the important claims in the text below.
+    For each claim decide whether it is an opinion, a prediction or a
+    verifiable statement, and whether it needs evidence or a source.
+
+    Text:
+    {text}
+  expected_output: >
+    A short list of claims in Turkish, each marked as opinion, prediction or
+    verifiable, and a list of the claims that need support.
+  agent: claim_reviewer
+
+improvement_task:
+  description: >
+    Use the clarity review and the claim review to write a final review of
+    the text below. Summarize the most important problems, give practical
+    suggestions and write a short revised version of the text.
+
+    Text:
+    {text}
+  expected_output: >
+    A plain text review in Turkish with exactly these sections:
+
+    İnceleme Özeti
+
+    Anlatım
+    (one or two sentences about readability)
+
+    Destek Gerektiren İddialar
+    - (quoted claims)
+
+    Riskli İfadeler
+    - (quoted absolute or vague phrases)
+
+    Öneriler
+    - (practical suggestions)
+
+    Revize Metin
+    (the improved text)
+
+    Do not use markdown headings, bold text or tables.
+  agent: improvement_editor
+  context:
+    - clarity_review_task
+    - claim_review_task
