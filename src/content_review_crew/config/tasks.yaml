@@ -2,6 +2,8 @@ clarity_review_task:
   description: >
     Review the readability of the text below.
     Point out long or complex sentences, repetition and vague expressions.
+    Use the count_words and count_long_sentences tools to measure the text
+    before writing the review.
 
     Text:
     {text}
@@ -14,6 +16,7 @@ claim_review_task:
     Find the important claims in the text below.
     For each claim decide whether it is an opinion, a prediction or a
     verifiable statement, and whether it needs evidence or a source.
+    Use the find_absolute_phrases tool to detect absolute wording.
 
     Text:
     {text}

@@ -3,6 +3,11 @@ from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai.project import CrewBase, agent, crew, task
 
 from content_review_crew.llm import groq_llm
+from content_review_crew.tools.text_tools import (
+    count_long_sentences,
+    count_words,
+    find_absolute_phrases,
+)
 
 
 @CrewBase
@@ -17,6 +22,7 @@ class ContentReviewCrew:
         return Agent(
             config=self.agents_config["clarity_reviewer"],  # type: ignore[index]
             llm=groq_llm(),
+            tools=[count_words, count_long_sentences],
             verbose=True,
         )
 
@@ -25,6 +31,7 @@ class ContentReviewCrew:
         return Agent(
             config=self.agents_config["claim_reviewer"],  # type: ignore[index]
             llm=groq_llm(),
+            tools=[find_absolute_phrases],
             verbose=True,
         )
 
