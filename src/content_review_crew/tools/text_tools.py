@@ -4,7 +4,7 @@ from crewai.tools import tool
 
 LONG_SENTENCE_WORDS = 20
 ABSOLUTE_PHRASES = [
-    "bütün", "tüm", "herkes", "hiçbir", "hiç kimse", "her zaman", "asla",
+    "bütün", "tüm", "her", "herkes", "hiç", "hiçbir", "her zaman", "asla",
     "kesinlikle", "mutlaka", "artık", "tamamen", "hepsi",
     "all", "every", "everyone", "always", "never", "definitely", "nobody",
 ]
@@ -38,6 +38,6 @@ def find_absolute_phrases(text: str) -> str:
     lowered = text.lower()
     found = [
         p for p in ABSOLUTE_PHRASES
-        if re.search(rf"\b{re.escape(p)}", lowered)
+        if re.search(rf"\b{re.escape(p)}\b", lowered)
     ]
     return "Absolute phrases: " + ", ".join(found) if found else "No absolute phrases found."
