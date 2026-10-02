@@ -61,9 +61,17 @@ class ContentReviewCrew:
 
     @crew
     def crew(self) -> Crew:
+        # The manager is not decorated with @agent: it must not be in self.agents.
+        manager = Agent(
+            config=self.agents_config["review_manager"],  # type: ignore[index]
+            llm=groq_llm(),
+            allow_delegation=True,
+            verbose=True,
+        )
         return Crew(
             agents=self.agents,
             tasks=self.tasks,
-            process=Process.sequential,
+            process=Process.hierarchical,
+            manager_agent=manager,
             verbose=True,
         )

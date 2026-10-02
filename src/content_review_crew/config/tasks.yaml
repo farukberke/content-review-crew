@@ -9,7 +9,6 @@ clarity_review_task:
     {text}
   expected_output: >
     A short readability review in Turkish with bullet points.
-  agent: clarity_reviewer
 
 claim_review_task:
   description: >
@@ -23,13 +22,12 @@ claim_review_task:
   expected_output: >
     The claims written as quoted sentences from the text, the claims that
     need evidence or a source, and the absolute phrases found in the text.
-  agent: claim_reviewer
 
 improvement_task:
   description: >
-    Use the clarity review and the claim review to write a final review of
-    the text below. Summarize the most important problems, give practical
-    suggestions and write a short revised version of the text.
+    Edit the text below. Using the earlier review results, summarize the
+    most important problems, give practical suggestions and write a short
+    revised version of the text. This is editing work, not a new review.
 
     Text:
     {text}
@@ -54,6 +52,7 @@ improvement_task:
     (the improved text)
 
     Do not use markdown headings, bold text or tables.
+  # In hierarchical mode this limits the manager's delegation to this agent.
   agent: improvement_editor
   context:
     - clarity_review_task
