@@ -3,6 +3,7 @@ from crewai.agents.agent_builder.base_agent import BaseAgent
 from crewai.project import CrewBase, agent, crew, task
 
 from content_review_crew.llm import groq_llm
+from content_review_crew.models import ClaimReview
 from content_review_crew.tools.text_tools import (
     count_long_sentences,
     count_words,
@@ -49,7 +50,10 @@ class ContentReviewCrew:
 
     @task
     def claim_review_task(self) -> Task:
-        return Task(config=self.tasks_config["claim_review_task"])  # type: ignore[index]
+        return Task(
+            config=self.tasks_config["claim_review_task"],  # type: ignore[index]
+            output_pydantic=ClaimReview,
+        )
 
     @task
     def improvement_task(self) -> Task:

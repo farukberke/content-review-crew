@@ -21,8 +21,8 @@ claim_review_task:
     Text:
     {text}
   expected_output: >
-    A short list of claims in Turkish, each marked as opinion, prediction or
-    verifiable, and a list of the claims that need support.
+    The claims written as quoted sentences from the text, the claims that
+    need evidence or a source, and the absolute phrases found in the text.
   agent: claim_reviewer
 
 improvement_task:
