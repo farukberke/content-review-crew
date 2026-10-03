@@ -6,6 +6,8 @@ Kullanıcının verdiği kısa bir metni, blog taslağını veya teknik açıkla
 
 Amaç bir ürün geliştirmek değil, CrewAI'nin temel parçalarını (Agent, Task, Crew, custom tool, structured output, hierarchical process, manager, kickoff) çalışan bir örnek üzerinde öğrenmek.
 
+![Gradio arayüzü](docs/demo.png)
+
 ## Mimari
 
 ```
